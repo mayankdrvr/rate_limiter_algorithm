@@ -50,16 +50,15 @@ Sleep(7000);
     // Print the current time in milliseconds since the epoch
     std::cout << "Current time in seconds since the epoch: " << millis2 << std::endl;
 if(s.size()>5 && millis2-millis1<5){
-    cout<<"rate limit exceed";
+    cout<<"rate limit exceed. wait 5 seconds before sending next request";
     while(s.size()>5)
       s.pop();
   }
  else if(s.size()>5 && millis2-millis1>=5){
     if(s.size()>=10)
-      cout<<"rate limit exceed";
-     while (!s.empty()) {
-        s.pop();
-      }
+      cout<<"rate limit exceed. wait 5 seconds before sending next request";
+     while(s.size()>5)
+      s.pop();
   }
    return 0;
 }
